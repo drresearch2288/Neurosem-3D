@@ -1,0 +1,47 @@
+# ==============================================================================
+# NeuroSem-3D: Learned, Uncertainty-Aware, Hierarchical 3D Semantic Field
+# ==============================================================================
+# NOTE: The diffusion (SDXL, ControlNet), depth estimation (DPT), SAM (Segment Anything),
+# and Neural-SDF geometry backbone weights are loaded FROZEN (inference-only).
+# These backbones are NOT trained in Work 2.
+# Only the 3D Neural Semantic Head (NSH) is updated/trained.
+# ==============================================================================
+name: neurosem3d
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch>=2.1
+  - torchvision
+  - cpuonly
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - pandas
+  - pip
+  - pip:
+      - diffusers
+      - transformers
+      - accelerate
+      - safetensors
+      - segment-anything
+      - trimesh
+      - mesh-to-sdf
+      - open3d
+      - scikit-image
+      - pymeshlab
+      - hydra-core
+      - omegaconf
+      - loguru
+      - tqdm
+      - rich
+      - pytest
+      - pytest-cov
+      # MinkowskiEngine and spconv-cu120 should be compiled/installed
+      # depending on local CUDA and compiler environment.
+      # e.g., pip install spconv-cu120
