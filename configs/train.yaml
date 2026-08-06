@@ -1,0 +1,4 @@
+seed: 42
+distill:
+  alpha: 0.5
+  temp: 2.0
